@@ -1,0 +1,70 @@
+# ~/.screenrc
+
+# change default screen to be 1, not 0
+bind c screen 1
+bind 0 select 10
+screen -t server 1
+screen -t css 2
+screen -t bash 3
+screen -t extra 4
+select 1
+
+
+# UTF-8 everywhere
+defutf8 on
+
+# disable Ctrl-S/Ctrl-Q "flow control"
+defflow off
+
+# skip intro
+startup_message off
+
+# detach on disconnect
+autodetach on
+
+# use regular audible bell
+vbell off
+
+# use backtick for prefix key instead of Ctrl-A
+escape ``
+
+# make the shell in every window a login shell
+shell -$SHELL
+# shelltitle '> |zsh'
+# connect windows to the display so programs like mplayer can find it when
+# we're inside a screen in a terminal application in a graphical environment
+setenv DISPLAY ':0'
+
+# print wackier status messages
+# nethack on
+
+# restore window contents after using (e.g.) vi
+altscreen on
+
+# show MPD info in status bar
+# backtick 1 5 5 /home/alfredo/.bin/nowplaying
+
+# Set the caption on the bottom line:
+# window-list <nowplaying> <mm/dd/yy> <HH:MM>am/pm
+#caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %1` %d/%m/%y %C:%s%a"
+# caption always "%{= ..}%-w%{= BW}%n %t%{-}%+w %-= %D %d %M %c"
+hardstatus alwayslastline "%{=b w}%-w%n %{= G}%t%{-}%+w %= %0c %{y}%1` "
+# use 256 colours
+term "screen-256color"
+
+#make them better
+bind 'K' kill
+bind 'W' windowlist
+#f1 and f2, forward and back
+#bindkey -k k1 prev
+#bindkey -k k2 next
+
+# terminnfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+# termcapinfo xterm|rxvt|* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm ti@:te@
+termcapinfo rxvt-unicode|xterm*|v* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+defbce "on"
