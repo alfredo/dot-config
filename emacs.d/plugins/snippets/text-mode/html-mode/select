@@ -1,0 +1,6 @@
+#name : <select ...>...</select>
+#group : select
+# --
+<select name="$0" id="$1">
+    $2
+</select>
