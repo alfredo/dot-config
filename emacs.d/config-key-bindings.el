@@ -20,10 +20,15 @@
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
-;; TODO python lambda
-(defun pretty-lambdas ()
-  (font-lock-add-keywords
-   nil `(("(?\\(lambda\\>\\)"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    ,(make-char 'greek-iso8859-7 107))
-                    nil))))))
+(defun duplicate-current-line ()
+  (interactive)
+  (beginning-of-line nil)
+  (let ((b (point)))
+    (end-of-line nil)
+    (copy-region-as-kill b (point)))
+  (beginning-of-line 2)
+  (open-line 1)
+  (yank)
+  (back-to-indentation))
+
+(global-set-key "\C-cd" 'duplicate-current-line)
