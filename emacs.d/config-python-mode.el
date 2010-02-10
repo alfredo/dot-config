@@ -17,5 +17,5 @@
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (load-library "flymake-cursor")
 
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
