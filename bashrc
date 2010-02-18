@@ -158,7 +158,7 @@ pyml ()
   python manage.py $1 --settings=settings_local
 }
 
-export EDITOR=emacs
+export EDITOR='emacs -nw'
 alias n='nautilus'
 
 alias delpyc='find . -iname \*pyc -delete'
