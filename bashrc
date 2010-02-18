@@ -117,9 +117,6 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias exit="clear; exit"
 
-# Lets you search through all available packages simply using 'pacsearch packagename'
-alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
-
 # sudo pacman -Syu by typing pacup (sudo must be installed and configured first)
 alias pacup="sudo pacman -Syu"
 
@@ -156,6 +153,10 @@ complete -o default -o nospace -F _virtualenvs rmvirtualenv
 
 
 alias pym='python manage.py'
+pyml () 
+{ 
+  python manage.py $1 --settings=settings_local
+}
 
 export EDITOR=emacs
 alias n='nautilus'
@@ -166,3 +167,6 @@ export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin:$HOME/bin
 
 alias ec="emacsclient -t"
 alias en="emacs -nw"
+
+# Find a file with a pattern in name:
+function ff() { find . -type f -iname '*'$*'*' -ls ; }
