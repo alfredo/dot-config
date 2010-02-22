@@ -14,7 +14,6 @@
                '("\\.py\\'" flymake-pyflakes-init)))
 (add-hook 'python-mode-hook 'flymake-mode)
 
-(add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 (load-library "flymake-cursor")
 
 ;(require 'pymacs)
