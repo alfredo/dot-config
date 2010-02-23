@@ -11,6 +11,7 @@
 
 ; never use tabs
 (setq-default indent-tabs-mode nil)
+(setq-default show-trailing-whitespace t)
 
 ; colored
 (global-font-lock-mode 1)

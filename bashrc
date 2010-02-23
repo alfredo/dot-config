@@ -157,6 +157,7 @@ pyml ()
 { 
   python manage.py $1 --settings=settings_local
 }
+alias djgraph='python manage.py graph_models -a -g -o'
 
 export EDITOR='emacs -nw'
 alias n='nautilus'

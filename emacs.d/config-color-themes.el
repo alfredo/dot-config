@@ -6,6 +6,7 @@
 (setq inhibit-startup-message t)
 (set-default 'indicate-empty-lines nil)
 (require 'cursor-chg)
+(blink-cursor-mode -1)      ;; No blinking please
 (change-cursor-mode 1)
 (change-cursor-mode 1) ; On for overwrite/read-only/input mode
 (toggle-cursor-type-when-idle 1) ; On when idle
