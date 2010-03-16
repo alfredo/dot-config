@@ -107,7 +107,6 @@ fi
 alias ll="ls -lh"
 alias la="ls -a"
 alias exit="clear; exit"
-alias rm="rm -i"
 
 # sudo pacman -Syu by typing pacup (sudo must be installed and configured first)
 alias pacup="sudo pacman -Syu"
