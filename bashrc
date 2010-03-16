@@ -1,19 +1,16 @@
-
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-
-#PS1='[\u@\h \W]\$ '
-
-
+# Ignore these commands
+export HISTIGNORE="&:ls:[bf]g:exit:pwd:[ \t]:screen"
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
-#export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 # increase history size
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -21,12 +18,6 @@ shopt -s histappend
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-#    xterm-color) color_prompt=yes;;
-#esac
-
 
 
 ##################################################
@@ -116,6 +107,7 @@ fi
 alias ll="ls -lh"
 alias la="ls -a"
 alias exit="clear; exit"
+alias rm="rm -i"
 
 # sudo pacman -Syu by typing pacup (sudo must be installed and configured first)
 alias pacup="sudo pacman -Syu"
