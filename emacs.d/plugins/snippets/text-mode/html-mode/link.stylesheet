@@ -1,4 +1,1 @@
-#contributor : Jimmy Wu <frozenthrone88@gmail.com>
-#name : <link stylesheet="..." />
-# --
-<link href="${2:url}" rel="${1:stylesheet}" type="${3:text/css}" media="${4:screen}" charset="${5:utf-8}"/>
+<link href="${0:url}" rel="stylesheet" type="text/css" media="${1:screen}" charset="${2:utf-8}" >
