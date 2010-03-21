@@ -114,6 +114,8 @@ alias pacup="sudo pacman -Syu"
 # sudo pacman -S by typing pac
 alias pac="sudo pacman -S"
 
+# update yaour
+alias aurup="yaourt -Syu --aur"
 
 # colorized pacman output with pacs alias:
 alias pacs="pacsearch"
