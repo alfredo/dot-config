@@ -42,3 +42,21 @@ there's a region, all lines that region covers will be duplicated."
       (goto-char (+ origin (* (length region) arg) arg)))))
 
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
+
+(defun rename-file-and-buffer ()
+  "Renames current buffer and file it is visiting."
+  (interactive)
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond ((get-buffer new-name)
+               (message "A buffer named '%s' already exists!" new-name))
+              (t
+               (rename-file name new-name 1)
+               (rename-buffer new-name)
+               (set-visited-file-name new-name)
+               (set-buffer-modified-p nil)))))))
+
+(global-set-key (kbd "C-c r") 'rename-file-and-buffer)
