@@ -5,10 +5,6 @@
  ido-ignore-buffers ;; ignore these guys
   '("\\` " "^\*Mess" "^\*Back" ".*Completion" "^\*Ido" 
     "^\\*tramp" "^\\*Messages\\*" " output\\*$")
-  ido-ignore-directories
-  '("\\`.svn/")
-  ido-ignore-files
-  '("\\`#" "\\`.#"))
   ido-everywhere t                 ; use for many file dialogs
   ido-case-fold  t                 ; be case-insensitive
   ido-enable-last-directory-history t ; remember last used dirs
