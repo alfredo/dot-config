@@ -115,7 +115,7 @@ alias pacup="sudo pacman -Syu"
 alias pac="sudo pacman -S"
 
 # update yaour
-alias aurup="yaourt -Syu --aur"
+alias aurup="sudo clyde -Syu --aur"
 
 # colorized pacman output with pacs alias:
 alias pacs="pacsearch"
@@ -128,11 +128,11 @@ pacsearch() {
      \033[0m"
 }
 
-alias y='yaourt'
+alias y='clyde'
 alias p='pacman'
 
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper_bashrc
+source /usr/bin/virtualenvwrapper.sh
 
 
 _virtualenvs ()
