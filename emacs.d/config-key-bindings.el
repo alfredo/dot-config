@@ -1,6 +1,6 @@
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-c\C-i" 'indent-region) ; C-u C-c TAB => (un)indent-region
-(global-set-key "\C-c;" 'comment-or-uncomment-region)
+(global-set-key "\C-c ;" 'comment-or-uncomment-region)
 
 ; copy and paste
 (setq x-select-enable-clipboard t)
@@ -19,7 +19,11 @@
 
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
+;; nom nom eat white space for next word
+(global-set-key (kbd "M-s") 'fixup-whitespace)
 
+
+(global-set-key (kbd "C-c t") 'delete-trailing-whitespace)
 
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
