@@ -71,6 +71,8 @@
 (load-library "config-python-mode")
 ; django 
 (load-library "config-django")
+;; extra hooks
+(load-library "config-extras")
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)

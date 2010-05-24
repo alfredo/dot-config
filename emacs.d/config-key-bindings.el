@@ -1,12 +1,11 @@
 (global-set-key "\C-z" 'undo)
 (global-set-key "\C-c\C-i" 'indent-region) ; C-u C-c TAB => (un)indent-region
-(global-set-key "\C-c ;" 'comment-or-uncomment-region)
 
 ; copy and paste
 (setq x-select-enable-clipboard t)
 (global-set-key "\C-w" 'clipboard-kill-region)
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
-(global-set-key "\C-y" 'clipboard-yank)
+(global-set-key (kbd "C-y") 'clipboard-yank)
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
@@ -22,7 +21,7 @@
 ;; nom nom eat white space for next word
 (global-set-key (kbd "M-s") 'fixup-whitespace)
 
-
+(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c t") 'delete-trailing-whitespace)
 
 (defun duplicate-current-line-or-region (arg)
