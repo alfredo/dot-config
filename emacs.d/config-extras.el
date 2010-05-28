@@ -13,3 +13,5 @@
   (goto-line 1)
   (flush-lines "^$")
   )
+
+(require 'pastebin)

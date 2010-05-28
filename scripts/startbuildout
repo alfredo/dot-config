@@ -1,0 +1,77 @@
+#! /bin/bash
+# raise errors if there are not any arguments
+NO_ARGS=0
+OPTERROR=65
+if [ $# -eq "$NO_ARGS" ]  # Script invoked with no command-line args?
+then
+  echo "Usage: `basename $0` PROJECT_NAME"
+  exit $OPTERROR          # Exit and explain usage, if no argument(s) given.
+fi
+# $1 - PROJECT NAME
+# Folder source
+mkdir -p $1/src
+touch $1/README
+# get bootstrap plugin
+wget http://svn.zope.org/*checkout*/zc.buildout/trunk/bootstrap/bootstrap.py
+mv bootstrap.py $1
+# buildout basic config
+echo "[buildout]
+parts = python
+develop = .
+eggs = PROJECT_NAME
+
+[python]
+recipe = zc.recipe.egg
+interpreter = python
+eggs = ${buildout:eggs}
+
+[django]
+recipe = djangorecipe
+version = 1.2.1
+project = PROJECT_NAME
+projectegg = PROJECT_NAME
+settings = settings
+test = PROJECT_APPS
+eggs = ${buildout:eggs}
+wsgi = True
+#extra-paths = parts/VENDOR
+
+#[VENDOR]
+#recipe = zerokspot.recipe.git
+#repository = http://github.com/*/*.git
+#as_egg = True
+" >$1/buildout.cfg
+
+# Develop setup
+echo "from setuptools import setup, find_packages
+
+setup(
+    name = 'PROJECT_NAME',
+    version = '0.01',
+    url = '',
+    description = 'DJANGO PROJECT DESCRIPTION',
+    author = '',
+    packages = find_packages('src'),
+    package_dir = {'': 'src'},
+    install_requires = ['setuptools',],
+    )
+" > $1/setup.py
+
+# svn ignore may already exist
+# when migrating a project
+echo "*.pyc
+*.pyo
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+vendor
+" >> $1/.svnignore
+
+setterm -background red
+echo "IMPORTANT: Edit setup.py and buildout.cfg to match your project needs."
+echo "Done"

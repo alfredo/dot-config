@@ -55,7 +55,7 @@ bash_prompt() {
           ;;
     esac
     local NONE="\[\033[0m\]"    # unsets color to term's fg color
-    
+
     # regular colors
     local K="\[\033[0;30m\]"    # black
     local R="\[\033[0;31m\]"    # red
@@ -65,7 +65,7 @@ bash_prompt() {
     local M="\[\033[0;35m\]"    # magenta
     local C="\[\033[0;36m\]"    # cyan
     local W="\[\033[0;37m\]"    # white
-    
+
     # emphasized (bolded) colors
     local EMK="\[\033[1;30m\]"
     local EMR="\[\033[1;31m\]"
@@ -75,7 +75,7 @@ bash_prompt() {
     local EMM="\[\033[1;35m\]"
     local EMC="\[\033[1;36m\]"
     local EMW="\[\033[1;37m\]"
-    
+
     # background colors
     local BGK="\[\033[40m\]"
     local BGR="\[\033[41m\]"
@@ -85,10 +85,10 @@ bash_prompt() {
     local BGM="\[\033[45m\]"
     local BGC="\[\033[46m\]"
     local BGW="\[\033[47m\]"
-    
+
     local UC=$W                 # user's color
     [ $UID -eq "0" ] && UC=$R   # root's color
-    
+
     PS1="$TITLEBAR${W}[${EMG}\u${EMC}@${EMB}\h${EMC}\${NEW_PWD}${W}]${UC}\\$ ${NONE}"
     # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
     # extra backslash in front of \$ to make bash colorize the prompt
@@ -146,8 +146,9 @@ complete -o default -o nospace -F _virtualenvs rmvirtualenv
 
 
 alias pym='python manage.py'
-pyml () 
-{ 
+alias pyd='../../bin/django'
+pyml ()
+{
   python manage.py $1 --settings=settings_local
 }
 alias djgraph='python manage.py graph_models -a -g -o'
