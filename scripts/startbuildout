@@ -17,6 +17,7 @@ mv bootstrap.py $1
 # buildout basic config
 echo "[buildout]
 parts = python
+    django
 develop = .
 eggs = PROJECT_NAME
 
