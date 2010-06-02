@@ -109,13 +109,10 @@ alias la="ls -a"
 alias exit="clear; exit"
 
 # sudo pacman -Syu by typing pacup (sudo must be installed and configured first)
-alias pacup="sudo pacman -Syu"
+# alias pacup="sudo pacman -Syu"
 
-# sudo pacman -S by typing pac
-alias pac="sudo pacman -S"
-
-# update yaour
-alias aurup="sudo clyde -Syu --aur"
+# update with clyde
+alias pacup="sudo clyde -Syu --aur"
 
 # colorized pacman output with pacs alias:
 alias pacs="pacsearch"
@@ -128,12 +125,8 @@ pacsearch() {
      \033[0m"
 }
 
-alias y='clyde'
-alias p='pacman'
-
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
-
 
 _virtualenvs ()
 {
@@ -153,15 +146,12 @@ pyml ()
 }
 alias djgraph='python manage.py graph_models -a -g -o'
 
-export EDITOR='emacs -nw'
+export EDITOR='vim'
 alias n='nautilus'
 
 alias delpyc='find . -iname \*pyc -delete'
 
 export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin:$HOME/bin
-
-alias ec="emacsclient -t"
-alias en="emacs -nw"
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
