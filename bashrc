@@ -155,3 +155,8 @@ export PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin:$HOME/bin
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
+
+
+# flex
+export FLEX_HOME=/opt/adobe-flex-sdk
+export PATH=$PATH:$FLEX_HOME/bin

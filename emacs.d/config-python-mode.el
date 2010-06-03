@@ -20,11 +20,11 @@
 ;(add-hook 'python-mode-hook '(lambda ()
 ;     (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
-(setq ropemacs-enable-shortcuts nil)
-(setq ropemacs-local-prefix "C-c C-p")
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport 't)
+;(setq ropemacs-enable-shortcuts nil)
+;(setq ropemacs-local-prefix "C-c C-p")
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
+;(setq ropemacs-enable-autoimport 't)
 
 ;; virtualenv loading
 ;;(add-hook 'python-mode-hook '(lambda () (require 'virtualenv)))

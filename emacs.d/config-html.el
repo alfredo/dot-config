@@ -4,8 +4,8 @@
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
 
-(defun fix-buffer ()
-  "indent whole buffer"
+(defun fb ()
+  "fix buffer"
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
