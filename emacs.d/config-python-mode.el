@@ -8,7 +8,7 @@
       (list "pyflakes" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
-(add-hook 'python-mode-hook 'flymake-mode 'python-pep8-mode)
+(add-hook 'python-mode-hook 'flymake-mode)
 
 (load-library "flymake-cursor")
 
@@ -17,9 +17,9 @@
 (setq py-python-command-args '( "-colors" "Linux"))
 
 ;; pep 8
-(require 'python-pep8)
-(autoload 'python-pep8 "python-pep8")
-(autoload 'pep8 "python-pep8")
+;;(require 'python-pep8)
+;;(autoload 'python-pep8 "python-pep8")
+;;(autoload 'pep8 "python-pep8")
 
 
 
