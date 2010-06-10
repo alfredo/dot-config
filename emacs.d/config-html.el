@@ -15,3 +15,6 @@
 (require 'sass-mode)
 (add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+
+;(require 'zencoding-mode)
+;(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
