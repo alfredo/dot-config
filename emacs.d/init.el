@@ -80,7 +80,7 @@
 (require 'saveplace)
 (setq-default save-place t)
 
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
-
 (require 'psvn)
+
+;; config custom
+(load-library "config-extras")
