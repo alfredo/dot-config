@@ -81,6 +81,3 @@
 (setq-default save-place t)
 
 (require 'psvn)
-
-;; config custom
-(load-library "config-extras")
