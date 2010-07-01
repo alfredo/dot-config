@@ -1,0 +1,1 @@
+<button type="${1:submit}">$0</button>

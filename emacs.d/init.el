@@ -71,6 +71,7 @@
 (load-library "config-python-mode")
 ; django 
 (load-library "config-django")
+;(load-library "config-python")
 ;; extra hooks
 (load-library "config-extras")
 
