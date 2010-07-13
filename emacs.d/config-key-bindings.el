@@ -63,3 +63,25 @@ there's a region, all lines that region covers will be duplicated."
                (set-buffer-modified-p nil)))))))
 
 (global-set-key (kbd "C-c r") 'rename-file-and-buffer)
+
+
+;; probably will disable this
+
+(defun save-the-pinky-buffer () (interactive) (message "Save your pinky! Use s-b (Opt-b) instead."))
+(defun save-the-pinky-open () (interactive) (message "Save your pinky! Use M-o (Cmd-o) instead."))
+(defun save-the-pinky-save () (interactive) (message "Save your pinky! Use M-s (Cmd-s) instead."))
+(defun save-the-pinky-undo () (interactive) (message "Save your pinky! Use M-z (Cmd-z) instead."))
+(defun save-the-pinky-window () (interactive) (message "Save your pinky! Use M-` (Cmd-`) instead."))
+(global-set-key "\C-_" 'save-the-pinky-undo)
+(global-set-key "\C-x\C-f" 'save-the-pinky-open)
+(global-set-key "\C-xo" 'save-the-pinky-other-window)
+(global-set-key "\C-x\C-s" 'save-the-pinky-save)
+(global-set-key "\C-x\C-b" 'save-the-pinky-buffer)
+
+(global-set-key "\M-o" 'find-file)
+(global-set-key "\M-s" 'save-buffer)
+(global-set-key "\M-z" 'undo)
+(global-set-key [(meta down)] 'end-of-buffer)
+(global-set-key [(meta up)] 'beginning-of-buffer)
+(global-set-key [(meta right)] 'end-of-line)
+(global-set-key [(meta left)] 'beginning-of-line)
