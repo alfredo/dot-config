@@ -16,8 +16,11 @@
 (add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
+(require 'rainbow-mode)
+
+;(require 'zencoding-mode)
+;(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 
 ; javascript
 (autoload 'js2-mode "js2" nil t)
