@@ -24,6 +24,8 @@
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c t") 'delete-trailing-whitespace)
 
+(global-set-key (kbd "C-c o") 'occur)
+
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
 If there's no region, the current line will be duplicated. However, if
@@ -72,11 +74,11 @@ there's a region, all lines that region covers will be duplicated."
 (defun save-the-pinky-save () (interactive) (message "Save your pinky! Use M-s (Cmd-s) instead."))
 (defun save-the-pinky-undo () (interactive) (message "Save your pinky! Use M-z (Cmd-z) instead."))
 (defun save-the-pinky-window () (interactive) (message "Save your pinky! Use M-` (Cmd-`) instead."))
-(global-set-key "\C-_" 'save-the-pinky-undo)
-(global-set-key "\C-x\C-f" 'save-the-pinky-open)
-(global-set-key "\C-xo" 'save-the-pinky-other-window)
-(global-set-key "\C-x\C-s" 'save-the-pinky-save)
-(global-set-key "\C-x\C-b" 'save-the-pinky-buffer)
+;(global-set-key "\C-_" 'save-the-pinky-undo)
+;(global-set-key "\C-x\C-f" 'save-the-pinky-open)
+;(global-set-key "\C-xo" 'save-the-pinky-other-window)
+;(global-set-key "\C-x\C-s" 'save-the-pinky-save)
+;(global-set-key "\C-x\C-b" 'save-the-pinky-buffer)
 
 (global-set-key "\M-o" 'find-file)
 (global-set-key "\M-s" 'save-buffer)
