@@ -83,3 +83,5 @@
 (setq-default save-place t)
 
 (require 'psvn)
+
+(require 'ack)
