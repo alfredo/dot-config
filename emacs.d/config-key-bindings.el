@@ -1,5 +1,7 @@
 (global-set-key "\C-z" 'undo)
-(global-set-key "\C-c\C-i" 'indent-region) ; C-u C-c TAB => (un)indent-region
+
+
+;(global-set-key "\C-c\C-i" 'indent-region) ; C-u C-c TAB => (un)indent-region
 
 ; copy and paste
 (setq x-select-enable-clipboard t)
@@ -17,7 +19,8 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
+;(global-set-key (kbd "C-x C-i") 'ido-imenu)
+
 ;; nom nom eat white space for next word
 (global-set-key (kbd "M-s") 'fixup-whitespace)
 
@@ -71,17 +74,14 @@ there's a region, all lines that region covers will be duplicated."
 (defun save-the-pinky-buffer () (interactive) (message "Save your pinky! Use s-b (Opt-b) instead."))
 (defun save-the-pinky-open () (interactive) (message "Save your pinky! Use M-o (Cmd-o) instead."))
 (defun save-the-pinky-save () (interactive) (message "Save your pinky! Use M-s (Cmd-s) instead."))
-(defun save-the-pinky-undo () (interactive) (message "Save your pinky! Use M-z (Cmd-z) instead."))
 (defun save-the-pinky-window () (interactive) (message "Save your pinky! Use M-` (Cmd-`) instead."))
-;(global-set-key "\C-_" 'save-the-pinky-undo)
 ;(global-set-key "\C-x\C-f" 'save-the-pinky-open)
 ;(global-set-key "\C-xo" 'save-the-pinky-window)
 ;(global-set-key "\C-x\C-s" 'save-the-pinky-save)
 ;(global-set-key "\C-x\C-b" 'save-the-pinky-buffer)
 
 (global-set-key "\M-o" 'find-file)
-(global-set-key "\M-s" 'save-buffer)
-(global-set-key "\M-z" 'undo)
+;(global-set-key "\M-s" 'save-buffer)
 (global-set-key [(meta down)] 'end-of-buffer)
 (global-set-key [(meta up)] 'beginning-of-buffer)
 (global-set-key [(meta right)] 'end-of-line)
