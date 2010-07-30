@@ -75,6 +75,8 @@
 (load-library "config-shell")
 ;; extra hooks
 (load-library "config-extras")
+;; groovy mode
+(load-library "config-groovy")
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)

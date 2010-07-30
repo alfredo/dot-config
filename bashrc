@@ -160,3 +160,7 @@ function ff() { find . -type f -iname '*'$*'*' -ls ; }
 # flex
 export FLEX_HOME=/opt/adobe-flex-sdk
 export PATH=$PATH:$FLEX_HOME/bin
+
+# groovy
+export GROOVY_HOME=/opt/groovy/
+export PATH=$PATH:$GROOVY_HOME/bin
