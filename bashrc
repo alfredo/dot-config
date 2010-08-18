@@ -113,6 +113,7 @@ alias exit="clear; exit"
 
 # update with clyde
 alias pacup="sudo clyde -Syu --aur"
+alias pacclean="sudo clyde -Scc --aur"
 
 # colorized pacman output with pacs alias:
 alias pacs="pacsearch"
