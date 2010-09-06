@@ -115,17 +115,6 @@ alias exit="clear; exit"
 alias pacup="sudo clyde -Syu --aur"
 alias pacclean="sudo clyde -Scc --aur"
 
-# colorized pacman output with pacs alias:
-alias pacs="pacsearch"
-pacsearch() {
-   echo -e "$(pacman -Ss "$@" | sed \
-     -e 's#^core/.*#\\033[1;31m&\\033[0;37m#g' \
-     -e 's#^extra/.*#\\033[0;32m&\\033[0;37m#g' \
-     -e 's#^community/.*#\\033[1;35m&\\033[0;37m#g' \
-     -e 's#^.*/.* [0-9].*#\\033[0;36m&\\033[0;37m#g' ) \
-     \033[0m"
-}
-
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
@@ -166,6 +155,6 @@ export PATH=$PATH:$FLEX_HOME/bin
 export GROOVY_HOME=/opt/groovy/
 export PATH=$PATH:$GROOVY_HOME/bin
 
-export PATH="/usr/lib/cw:/usr/local/bin/:$PATH"
+export PATH=/usr/lib/cw:/usr/local/bin/:$PATH
 
 alias ack='ack --type-add java=.groovy'
