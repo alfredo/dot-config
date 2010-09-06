@@ -165,3 +165,7 @@ export PATH=$PATH:$FLEX_HOME/bin
 # groovy
 export GROOVY_HOME=/opt/groovy/
 export PATH=$PATH:$GROOVY_HOME/bin
+
+export PATH="/usr/lib/cw:/usr/local/bin/:$PATH"
+
+alias ack='ack --type-add java=.groovy'
