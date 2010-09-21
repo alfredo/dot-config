@@ -154,6 +154,9 @@ export PATH=$PATH:$FLEX_HOME/bin
 # groovy
 export GROOVY_HOME=/opt/groovy/
 export PATH=$PATH:$GROOVY_HOME/bin
+#grails
+export GRAILS_HOME=$HOME/packages/grails-1.2.1
+export PATH=$PATH:$GRAILS_HOME/bin
 
 export PATH=/usr/lib/cw:/usr/local/bin/:$PATH
 
