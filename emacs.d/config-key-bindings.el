@@ -24,7 +24,7 @@
 ;; nom nom eat white space for next word
 (global-set-key (kbd "M-s") 'fixup-whitespace)
 
-(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c t") 'delete-trailing-whitespace)
 
 (global-set-key (kbd "C-c o") 'occur)
@@ -80,6 +80,7 @@ there's a region, all lines that region covers will be duplicated."
 ;(global-set-key "\C-x\C-s" 'save-the-pinky-save)
 ;(global-set-key "\C-x\C-b" 'save-the-pinky-buffer)
 
+(global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key "\M-o" 'find-file)
 ;(global-set-key "\M-s" 'save-buffer)
 (global-set-key [(meta down)] 'end-of-buffer)
@@ -87,3 +88,7 @@ there's a region, all lines that region covers will be duplicated."
 (global-set-key [(meta right)] 'end-of-line)
 (global-set-key [(meta left)] 'beginning-of-line)
 
+
+(defun google (query)
+  (interactive "sGoogle this: ")
+  (browse-url (concat "http://google.co.uk/search?q=" query)))

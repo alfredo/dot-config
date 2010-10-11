@@ -6,6 +6,11 @@
 (add-to-list 'auto-mode-alist '("\\.less\\'" . css-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.sass\\'" . css-mode))
 
+(require 'php-mode)
+(add-hook 'php-mode-hook
+          '(lambda () (define-abbrev php-mode-abbrev-table "ex" "extends")))
+
+
 (defun fb ()
   "fix buffer"
   (interactive)

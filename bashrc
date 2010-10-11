@@ -147,7 +147,6 @@ export GEM_HOME=$HOME/.gems
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
 
-
 # flex
 export FLEX_HOME=/opt/adobe-flex-sdk
 export PATH=$PATH:$FLEX_HOME/bin
@@ -159,12 +158,9 @@ export PATH=$PATH:$GROOVY_HOME/bin
 export GRAILS_HOME=$HOME/packages/grails-1.2.1
 export PATH=$PATH:$GRAILS_HOME/bin
 
-export PATH=/usr/lib/cw:/usr/local/bin/:$PATH
+export PATH=/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
 
-alias ack='ack --type-add java=.groovy'
-
-export GRAILS_HOME=/home/alfredo/packages/grails-1.2.1
-export PATH=$PATH:$GRAILS_HOME/bin
+export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy:--type-add=html=.gsp
 
 _grailsscripts() {
     SCRIPT_DIRS="$GRAILS_HOME/scripts ./scripts ~/.grails/scripts"
