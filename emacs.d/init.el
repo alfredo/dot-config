@@ -87,6 +87,8 @@
 (load-library "config-extras")
 ;; groovy mode
 (load-library "config-groovy")
+;; processing mode
+(load-library "config-processing")
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
