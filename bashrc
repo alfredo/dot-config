@@ -141,6 +141,8 @@ alias n='nautilus'
 
 alias delpyc='find . -iname \*pyc -delete'
 
+alias pretty-json='python -mjson.tool'
+
 export PATH=$PATH:$HOME/bin
 export GEM_HOME=$HOME/.gems
 
@@ -158,7 +160,7 @@ export PATH=$PATH:$GROOVY_HOME/bin
 export GRAILS_HOME=$HOME/packages/grails-1.2.1
 export PATH=$PATH:$GRAILS_HOME/bin
 
-export PATH=/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
+export PATH=$HOME/local/bin/:/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
 
 export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy:--type-add=html=.gsp
 
