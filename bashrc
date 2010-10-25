@@ -128,7 +128,7 @@ complete -o default -o nospace -F _virtualenvs workon
 complete -o default -o nospace -F _virtualenvs rmvirtualenv
 
 
-alias pym='python manage.py'
+alias pym='python2 manage.py'
 alias pyd='../../bin/django'
 pyml ()
 {
