@@ -134,6 +134,13 @@ pyml ()
 {
   python manage.py $1 --settings=settings_local
 }
+
+pymt ()
+{
+  python manage.py $1 --settings=settings_test
+}
+
+
 alias djgraph='python manage.py graph_models -a -g -o'
 
 export EDITOR='vim'
@@ -162,7 +169,9 @@ export PATH=$PATH:$GRAILS_HOME/bin
 
 export PATH=$HOME/local/bin/:/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
 
-export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy:--type-add=html=.gsp
+export ACK_OPTIONS=--type-add=html=.gsp
+
+#:--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy
 
 _grailsscripts() {
     SCRIPT_DIRS="$GRAILS_HOME/scripts ./scripts ~/.grails/scripts"
@@ -183,3 +192,52 @@ _grails() {
 }
 
 complete -F _grails grails
+
+_django_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+	               DJANGO_AUTO_COMPLETE=1 $1 ) )
+}
+complete -F _django_completion -o default django-admin.py manage.py django-admin
+
+_python_django_completion()
+{
+    if [[ ${COMP_CWORD} -ge 2 ]]; then
+        PYTHON_EXE=$( basename -- ${COMP_WORDS[0]} )
+        echo $PYTHON_EXE | egrep "python([2-9]\.[0-9])?" >/dev/null 2>&1
+        if [[ $? == 0 ]]; then
+            PYTHON_SCRIPT=$( basename -- ${COMP_WORDS[1]} )
+            echo $PYTHON_SCRIPT | egrep "manage\.py|django-admin(\.py)?" >/dev/null 2>&1
+            if [[ $? == 0 ]]; then
+                COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]:1}" \
+                               COMP_CWORD=$(( COMP_CWORD-1 )) \
+                               DJANGO_AUTO_COMPLETE=1 ${COMP_WORDS[*]} ) )
+            fi
+        fi
+    fi
+}
+
+# Support for multiple interpreters.
+unset pythons
+if command -v whereis &>/dev/null; then
+    python_interpreters=$(whereis python | cut -d " " -f 2-)
+    for python in $python_interpreters; do
+        pythons="${pythons} $(basename -- $python)"
+    done
+    pythons=$(echo $pythons | tr " " "\n" | sort -u | tr "\n" " ")
+else
+    pythons=python
+fi
+
+complete -F _python_django_completion -o default $pythons
+
+#alias git="git-achievements"
+
+# AWS
+export AWS_CLOUDFORMATION_HOME=/home/alfredo/local/modules/AWSCloudFormation-1.0.6
+
+export PATH=$PATH:$AWS_CLOUDFORMATION_HOME/bin
+export AWS_CREDENTIAL_FILE=/home/alfredo/local/modules/AWSCloudFormation-1.0.6/credential-file-path.template
+
+alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'

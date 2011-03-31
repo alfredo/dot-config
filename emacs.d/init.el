@@ -67,28 +67,28 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
-; key bindings
+;; key bindings
 (load-library "config-key-bindings")
-; ido config
+;; ido config
 (load-library "config-ido")
-; yas config
+;; yas config
 (load-library "config-yas")
-; themes
+;; ; themes
 (load-library "config-color-themes")
-; html config
+;; html config
 (load-library "config-html")
-; python mode
+;; python mode
 (load-library "config-python-mode")
-; django
+;; django
 (load-library "config-django")
-; shell mode
+;; shell mode
 (load-library "config-shell")
 ;; extra hooks
 (load-library "config-extras")
 ;; groovy mode
-(load-library "config-groovy")
-;; processing mode
-(load-library "config-processing")
+;(load-library "config-groovy")
+;; ;; processing mode
+;(load-library "config-processing")
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
@@ -98,7 +98,7 @@
 
 (require 'psvn)
 
-(require 'ack)
+;(require 'ack)
 
 (require 'mic-paren)
 (paren-activate)

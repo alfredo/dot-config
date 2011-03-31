@@ -95,6 +95,16 @@ there's a region, all lines that region covers will be duplicated."
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-(defun google (query)
-  (interactive "sGoogle this: ")
-  (browse-url (concat "http://google.co.uk/search?q=" query)))
+;; (defun google (query)
+;;   (interactive "sGoogle this: ")
+;;   (browse-url (concat "http://google.co.uk/search?q=" query)))
+
+(require 'webjump)
+(setq webjump-sites
+      (append '(
+  ("Google Image Search" .
+   [simple-query "google.co.uk" "google.co.uk/search?q=" ""])
+  ("Flickr Search" .
+   [simple-query "www.flickr.com" "flickr.com/search/?q=" ""])
+  )
+              webjump-sample-sites))
