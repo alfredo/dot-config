@@ -243,3 +243,8 @@ set clipboard+=unnamed
 "=====
 ab bl <Esc>bi{% block <Esc>ea %}{% endblock %}<Esc>h%i
 
+
+" colour
+" https://github.com/altercation/vim-colors-solarized
+set background=dark
+colorscheme solarized
