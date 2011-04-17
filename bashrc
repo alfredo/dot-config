@@ -152,6 +152,8 @@ alias pretty-json='python -mjson.tool'
 
 export PATH=$PATH:$HOME/bin
 export GEM_HOME=$HOME/.gems
+export PATH=$PATH:$GEM_HOME/bin
+
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
@@ -168,6 +170,8 @@ export GRAILS_HOME=$HOME/packages/grails-1.2.1
 export PATH=$PATH:$GRAILS_HOME/bin
 
 export PATH=$HOME/local/bin/:/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
+# app engine
+export PATH=/opt/google-appengine:$PATH
 
 export ACK_OPTIONS=--type-add=html=.gsp
 
