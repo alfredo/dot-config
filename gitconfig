@@ -1,0 +1,6 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+        slog = log --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'

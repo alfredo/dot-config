@@ -9,8 +9,8 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 # increase history size
-export HISTSIZE=100000
-export HISTFILESIZE=100000
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -245,3 +245,5 @@ export PATH=$PATH:$AWS_CLOUDFORMATION_HOME/bin
 export AWS_CREDENTIAL_FILE=/home/alfredo/local/modules/AWSCloudFormation-1.0.6/credential-file-path.template
 
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+
+source ~/configs/git-completion.bash
