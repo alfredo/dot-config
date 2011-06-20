@@ -123,6 +123,9 @@ _virtualenvs ()
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=( $(compgen -W "`ls $WORKON_HOME`" -- ${cur}) )
 }
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+export VIRTUALENVWRAPPER_VIRTUALENV=virtualenv2
+
 alias ls='ls --color=auto'
 complete -o default -o nospace -F _virtualenvs workon
 complete -o default -o nospace -F _virtualenvs rmvirtualenv
@@ -152,7 +155,7 @@ alias pretty-json='python -mjson.tool'
 
 export PATH=$PATH:$HOME/bin
 export GEM_HOME=$HOME/.gems
-export PATH=$PATH:$GEM_HOME/bin
+export PATH=$PATH:$GEM_HOME/bin:/usr/lib/ruby/gems/1.9.1/bin/
 
 
 # Find a file with a pattern in name:
