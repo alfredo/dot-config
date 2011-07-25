@@ -149,7 +149,7 @@ pymj ()
   python manage.py $1 --settings=settings.test
 }
 
-
+alias dj='django-manage.py'
 
 alias djgraph='python manage.py graph_models -a -g -o'
 
