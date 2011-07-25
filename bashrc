@@ -144,10 +144,17 @@ pymt ()
 }
 
 
+pymj ()
+{
+  python manage.py $1 --settings=settings.test
+}
+
+
+
 alias djgraph='python manage.py graph_models -a -g -o'
 
 export EDITOR='vim'
-alias n='nautilus'
+alias n='nautilus -n'
 
 alias delpyc='find . -iname \*pyc -delete'
 
@@ -156,7 +163,8 @@ alias pretty-json='python -mjson.tool'
 export PATH=$PATH:$HOME/bin
 export GEM_HOME=$HOME/.gems
 export PATH=$PATH:$GEM_HOME/bin:/usr/lib/ruby/gems/1.9.1/bin/
-
+export PUPPET_MODULES_PATH=$HOME/projects/vagrant-django-template/modules
+export VDT_HOME=$HOME/projects/vagrant-django-template
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
