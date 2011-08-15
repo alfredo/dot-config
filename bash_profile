@@ -116,13 +116,7 @@ _virtualenvs ()
 complete -o default -o nospace -F _virtualenvs workon
 complete -o default -o nospace -F _virtualenvs rmvirtualenv
 
-
 alias pym='python manage.py'
-alias pyd='../../bin/django'
-pyml ()
-{
-  python manage.py $1 --settings=settings_local
-}
 alias djgraph='python manage.py graph_models -a -g -o'
 
 export EDITOR='vim'
@@ -130,54 +124,16 @@ alias n='nautilus'
 
 alias delpyc='find . -iname \*pyc -delete'
 
-export PATH=$PATH:$HOME/bin:/usr/local/mysql/bin:$HOME/.gems/bin/
+export PATH=$PATH:$HOME/.gems/bin/:$HOME/projects/local-bin:$HOME/.gem/ruby/1.9.1/bin/:/usr/local/bin/
 export GEM_HOME=$HOME/.gems
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
 
-# flex
-export FLEX_HOME=/opt/adobe-flex-sdk
-export PATH=$PATH:$FLEX_HOME/bin
-
-# groovy
-export GROOVY_HOME=/opt/groovy/
-export PATH=$PATH:$GROOVY_HOME/bin
-#grails
-export GRAILS_HOME=$HOME/packages/grails-1.2.1
-export PATH=$PATH:$GRAILS_HOME/bin
-
-export PATH=/usr/lib/cw:/usr/local/bin/:$HOME/.gem/ruby/1.9.1/bin/:$PATH
-
 export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy:--type-add=html=.gsp
 
-_grailsscripts() {
-    SCRIPT_DIRS="$GRAILS_HOME/scripts ./scripts ~/.grails/scripts"
-    if [ -d plugins ]
-       then for PLUGIN_DIR in $(ls -d plugins/*/scripts 2> /dev/null); do
-       SCRIPT_DIRS="$SCRIPT_DIRS $PLUGIN_DIR"
-       done
-    fi
-    for D in $SCRIPT_DIRS; do
-        if [ -d $D ]
-	   then ls -1 $D/*.groovy 2> /dev/null | sed -E 's/(.*)\/(.*)\.groovy/\2/' | sed -E 's/([A-Z])/-\1/g' | sed -E 's/^-//' | tr "[:upper:]" "[:lower:]"
-	fi
-    done | sort | uniq | grep -vE "^_"
-}
-
-_grails() {
-    COMPREPLY=( $(compgen -W "$(_grailsscripts)" -- ${COMP_WORDS[COMP_CWORD]}) )
-}
-
-complete -F _grails grails
-
 export VDT_HOME=$HOME/projects/vagrant
-##
-# Your previous /Users/alfredoaguirre/.bash_profile file was backed up as /Users/alfredoaguirre/.bash_profile.macports-saved_2011-08-10_at_17:27:24
-##
 
-# MacPorts Installer addition on 2011-08-10_at_17:27:24: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
 
-source $HOME/configs/git-flow-completion.bash
+source $HOME/projects/configs/git-flow-completion.bash
