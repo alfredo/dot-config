@@ -135,5 +135,7 @@ export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.gr
 export VDT_HOME=$HOME/projects/vagrant
 
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# git svn
+export PATH=/opt/local/libexec/git-core:$PATH
 
 source $HOME/projects/configs/git-flow-completion.bash
