@@ -130,6 +130,8 @@ export GEM_HOME=$HOME/.gems
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
 
+alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+
 export ACK_OPTIONS=--type-add=php=.php,.module,.inc,.install:--type-add=java=.groovy:--type-add=html=.gsp
 
 export VDT_HOME=$HOME/projects/vagrant
