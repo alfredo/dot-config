@@ -25,3 +25,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/opt/local/libexec/git-core:$PATH
 
 source $HOME/projects/configs/git-flow-completion.bash
+
+alias ls="ls -G"
+export CLICOLORS=1
+export LSCOLORS=dxfxcxdxbxegedabagacad
+# export LSCOLORS=GxFxCxDxBxegedabagaced
+alias clean_dir='find . -name ".DS_Store" -depth -exec rm {} \;'

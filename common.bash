@@ -32,7 +32,7 @@ shopt -s checkwinsize
 ##################################################
 bash_prompt_command() {
     # How many characters of the $PWD should be kept
-    local pwdmaxlen=20
+    local pwdmaxlen=30
     # Indicate that there has been dir truncation
     local trunc_symbol=".."
     local dir=${PWD##*/}
@@ -53,6 +53,54 @@ function parse_git_dirty {
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/:\1$(parse_git_dirty)/"
+}
+
+git_info() {
+  # colors
+  local     RESET="\033[0m"
+  local      GRAY="\033[1;30m"
+  local       RED="\033[1;31m"
+  local     GREEN="\033[1;32m"
+  local      BLUE="\033[1;34m"
+  local      PINK="\033[1;35m"
+  local      CYAN="\033[1;36m"
+
+  local      GOOD="\xe2\x88\x99"              # ∙   circle
+  local     AHEAD="\xe2\x86\x91"              # ↑   up arrow
+  local    BEHIND="\xe2\x86\x93"              # ↓   down arrow
+  local   CHANGED="\xcf\x9f"                  # ϟ   lightning
+  local  DIVERGED="\xe2\x86\x95"              # ↕   up-down
+  local UNTRACKED="\xe0\xb2\xa0_\xe0\xb2\xa0" # ಠ_ಠ disapproval
+
+  git_place() {
+    local place=$(git status 2> /dev/null | head -n2 | tail -n1)
+    if [[ $( echo $place | grep "Your branch is ahead of" ) != "" ]]; then
+      echo -e "$PINK$AHEAD"
+    elif [[ $( echo $place | grep "Your branch is behind" ) != "" ]]; then
+      echo -e "$BLUE$BEHIND"
+    elif [[ $( echo $place | grep "Your branch and .* have diverged" ) != "" ]]; then
+      echo -e "$CYAN$DIVERGED"
+    else
+      echo -e "$GREEN$GOOD"
+    fi
+  }
+
+  git_status() {
+    local status=$(git status 2> /dev/null | tail -n1)
+    if [[ $status != "nothing to commit (working directory clean)" ]]; then
+      if [[ $status == 'nothing added to commit but untracked files present (use "git add" to track)' ]]; then
+        echo -e "$GRAY$UNTRACKED"
+      else
+        echo -e "$RED$CHANGED"
+      fi
+    fi
+  }
+
+  local branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
+
+  if [[ $branch != "" ]]; then
+    echo -e ":$branch$(git_place)$(git_status)$RESET"
+  fi
 }
 
 bash_prompt() {
@@ -98,7 +146,8 @@ bash_prompt() {
 
     local UC=$W                 # user's color
     [ $UID -eq "0" ] && UC=$R   # root's color
-    PS1="$TITLEBAR${EMG}\u${EMC}@${EMB}\h ${EMC}\${NEW_PWD}${EMY}\$(parse_git_branch)${UC}\\$ ${NONE}"
+    # PS1="[$TITLEBAR${EMG}\u${EMC}@${EMB}\h ${EMC}\${NEW_PWD}${EMY}\$(parse_git_branch)${UC}]\n\\$ ${NONE}"
+    PS1="[$TITLEBAR${EMG}\u${EMC}@${EMB}\h ${EMC}\${NEW_PWD}${EMY}\$(git_info)${UC}]\n\\$ ${NONE}"
     # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
     # extra backslash in front of \$ to make bash colorize the prompt
 }
@@ -124,8 +173,9 @@ alias pym='python manage.py'
 alias dj='django-admin.py'
 alias djgraph='django-admin.py graph_models -a -g -o'
 alias delpyc='find . -iname \*pyc -delete'
-alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+alias webshare='python -m "SimpleHTTPServer 8080"'
 alias pretty-json='python -mjson.tool'
+alias v='vagrant'
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }

@@ -264,3 +264,5 @@ export AWS_CREDENTIAL_FILE=/home/alfredo/local/modules/AWSCloudFormation-1.0.6/c
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
 
 source ~/configs/git-completion.bash
+
+alias pxml = 'python -c "from  lxml import etree; import sys; sys.stdout(etree.tostring(etree.parse(sys.argv[1]), pretty_print=True, encoding=unicode))"'
