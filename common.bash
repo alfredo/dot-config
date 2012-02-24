@@ -179,3 +179,12 @@ alias v='vagrant'
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
+
+# adds ~/.ssh/config to the ssh autocomplete
+ssh_load_autocomplete()
+{
+	complete -W "$(awk '/^\s*Host\s*/ { sub(/^\s*Host /, ""); print; }' ~/.ssh/config)" ssh
+}
+
+# adds ~/.ssh/config to the ssh autocomplete
+ssh_load_autocomplete
