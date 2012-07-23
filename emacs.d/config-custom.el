@@ -1,1 +1,0 @@
-(load "/usr/share/emacs/site-lisp/nxhtml/autostart.el")

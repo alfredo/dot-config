@@ -188,3 +188,13 @@ ssh_load_autocomplete()
 
 # adds ~/.ssh/config to the ssh autocomplete
 ssh_load_autocomplete
+
+cdp () {
+    if [ ! -n "$1" ]
+    then
+        echo "Usage: cdp modulename"
+    else
+        cd "$(python -c "import os.path as _, ${1}; print _.dirname(_.realpath(${1}.__file__[:-1]))")"
+    fi
+}
+
