@@ -7,4 +7,7 @@
 [push]
 	default = tracking
 [core]
-        editor = vim
+    editor = vim
+    PreloadIndex = true
+[rerere]
+	enabled = true
