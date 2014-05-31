@@ -247,4 +247,5 @@ ab bl <Esc>bi{% block <Esc>ea %}{% endblock %}<Esc>h%i
 " colour
 " https://github.com/altercation/vim-colors-solarized
 set background=dark
-colorscheme solarized
+" git
+autocmd Filetype gitcommit setlocal spell textwidth=72
