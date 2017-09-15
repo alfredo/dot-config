@@ -1,24 +1,23 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [alias]
-        slog = log --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'
-        open = !hub browse --
-        open = !hub browse --
-        openhead = !hub browse -- commit/$(git rev-parse HEAD)
-        opencommit = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -- commit/$sha; }; f"
-        openblame = "!f() { sha=$(git log --format='%h' -1 $1); hub browse -- blame/$sha/$1#L$2; }; f"
-        openhistory = "!f() { sha=$(git log --format='%h' -1 $1); hub browse -- commits/$sha/$1; }; f"
-        issues = !hub browse -- issues
-        pulls = !hub browse -- pulls
-        settings = !hub browse -- settings
-        branches = !hub browse -- branches
-        releases = !hub browse -- releases
+    slog = log --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'
+    open = !hub browse -- tree/$(git rev-parse --abbrev-ref HEAD)
+    openhead = !hub browse -- commit/$(git rev-parse HEAD)
+    opencommit = "!f() { sha=$(git rev-parse ${1:-HEAD}); hub browse -- commit/$sha; }; f"
+    openblame = "!f() { sha=$(git log --format='%h' -1 $1); hub browse -- blame/$sha/$1#L$2; }; f"
+    openhistory = "!f() { sha=$(git log --format='%h' -1 $1); hub browse -- commits/$sha/$1; }; f"
+    issues = !hub browse -- issues
+    pulls = !hub browse -- pulls
+    settings = !hub browse -- settings
+    branches = !hub browse -- branches
+    releases = !hub browse -- releases
 [push]
-	default = tracking
+    default = tracking
 [core]
     editor = vim
     PreloadIndex = true
 [rerere]
-	enabled = true
+    enabled = true
