@@ -1,0 +1,17 @@
+[user]
+	name = Alfredo Aguirre
+[alias]
+        slog = log --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'
+        open = !hub browse -- tree/$(git rev-parse --abbrev-ref HEAD)
+[push]
+	default = tracking
+[core]
+    editor = vim
+    PreloadIndex = true
+    excludesfile = /home/alfredo/.config/git/ignore_global
+[rerere]
+	enabled = true
+[magit]
+	hideCampaign = true
+[color]
+	ui = auto

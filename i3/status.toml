@@ -1,0 +1,36 @@
+theme = "solarized-dark"
+
+[icons]
+name = "awesome"
+
+[[block]]
+block = "custom"
+command = "hostname"
+interval = 10000
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "sound"
+step_width = 3
+
+[[block]]
+block = "net"
+device = "wlp61s0"
+ssid = true
+interval = 5
+speed_down = false
+speed_up = false
+
+[[block]]
+block = "battery"
+interval = 10
+show = "percentage"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%F %R"

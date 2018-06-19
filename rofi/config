@@ -1,0 +1,8 @@
+rofi.theme: /usr/share/rofi/themes/blue.rasi
+rofi.modi: combi
+rofi.combi-modi: drun,window
+rofi.show: drun
+rofi.font: Iosevka 18
+rofi.matching: fuzzy
+rofi.show-match: true
+rofi.sort: true
