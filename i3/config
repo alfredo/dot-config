@@ -186,5 +186,6 @@ bar {
 
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 2
 new_window 1pixel
