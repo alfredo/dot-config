@@ -144,6 +144,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec xfce4-session-logout
 bindsym $mod+Shift+slash exec xfce4-session-logout
 
+bindsym $mod+Shift+p exec gnome-screenshot -i
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
