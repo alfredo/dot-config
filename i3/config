@@ -139,10 +139,24 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec xfce4-session-logout
-bindsym $mod+Shift+slash exec xfce4-session-logout
+
+exec --no-startup-id xautolock -time 3 -locker "~/.config/i3/lock"
+
+# Lock screen and power off configuration:
+set $Locker ~/.config/i3/lock && sleep 1
+set $mode_system System [l]ock, [s]uspend, [r]estart [h]alt
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym h exec --no-startup-id systemctl poweroff, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+slash mode "$mode_system"
+
 
 bindsym $mod+Shift+p exec gnome-screenshot -i
 
