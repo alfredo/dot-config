@@ -5,8 +5,6 @@ import rlcompleter
 import atexit
 
 from see import see
-from show import show
-
 
 readline.parse_and_bind('tab:complete')
 
