@@ -1,5 +1,5 @@
 [options]
-font = Iosevka Term Light 12
+font = Iosevka Term Light 13
 scrollback_lines = -1
 hyperlinks = true
 clickable_url = true

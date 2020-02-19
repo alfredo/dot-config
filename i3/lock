@@ -1,10 +1,10 @@
 #!/bin/bash
 
-BASE_DIR=/usr/share/backgrounds/xolotl
+BASE_DIR=/usr/share/backgrounds/resized
 
 IMAGE_PATH="$(find $BASE_DIR -type f | shuf -n 1)"
 
-# convert -scale 2560x1440 source-image.jpg lockscreen.png
+# convert '*.jpg[2560x]' resized%03d.png
 
 i3lock \
   -i $IMAGE_PATH \

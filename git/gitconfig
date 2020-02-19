@@ -16,6 +16,19 @@
 [magit]
 	hideCampaign = true
 [color]
-	ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+[color "status"]
+    added = green
+    changed = red bold
+    untracked = magenta bold
+
+[color "branch"]
+    remote = yellow
+
 [rebase]
     autoStash = true

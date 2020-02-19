@@ -6,7 +6,7 @@ name = "awesome"
 
 [[block]]
 block = "focused_window"
-max_width = 21
+max_width = 200
 
 [[block]]
 block = "custom"
