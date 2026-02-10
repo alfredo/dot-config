@@ -7,6 +7,7 @@
     publish = push -u origin HEAD
     sync = !git fetch -p && git pull --rebase
     gone = "!f() { git branch -D \"$1\" && git push origin --delete \"$1\" && echo \"Branch '$1' deleted locally and remotely\"; }; f"  # Remove branch localy and remotely
+    cleanup = "!git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d"  # remove merged branches.
 [push]
     default = upstream
 [pull]
