@@ -2,20 +2,33 @@
     name = Alfredo Aguirre
 [alias]
     slog = log --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'
-    open = !hub browse -- tree/$(git rev-parse --abbrev-ref HEAD)
+    glog = log --graph --all --pretty=format:'%C(bold)%C(yellow)%h%Creset%C(222)%d%Creset %s %C(bold)%C(black)(%cr by %an)'
+     open = "!echo $(git remote get-url origin | sed 's#git@\\([^:]*\\):#https://\\1/#; s#\\.git$##')/tree/$(git rev-parse --abbrev-ref HEAD)"
     find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
     show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
 [push]
-	default = tracking
+    default = upstream
 [core]
     editor = vim
     PreloadIndex = true
-    excludesfile = /home/alfredo/.config/git/ignore_global
+    excludesfile = ~/.config/git/ignore_global
+    ignoreCase = false
 [rerere]
-	enabled = true
+    enabled = true
 [magit]
-	hideCampaign = true
+    hideCampaign = true
 [color]
-	ui = auto
+    ui = auto
 [rebase]
     autoStash = true
+[gpg]
+    program = gpg
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+[init]
+    defaultBranch = main
+[url "https://github.com/"]
+    insteadOf = git://github.com/

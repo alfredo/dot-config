@@ -2,3 +2,10 @@
 notes.org
 TAGS
 BrowserStackLocal
+.DS_Store
+.python-version
+flycheck_*
+.cursorrules
+ai/
+.cursorignore
+.cursorrules
